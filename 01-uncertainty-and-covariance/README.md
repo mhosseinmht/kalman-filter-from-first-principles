@@ -141,7 +141,7 @@ $$
 \sigma_{xy} = \mathrm{Cov}(x,y).
 $$
 
-The diagonal elements $\sigma_x^2$ and $\sigma_y^2$ are variances. They tell us how uncertain we are about each variable individually, while the off-diagonal elements $\sigma_{xy}$ and $\sigma_{yx}$ are covariances and describe whether the errors in $x$ and $y$ tend to change together.
+The diagonal elements $\sigma_x^2$ and $\sigma_y^2$ are variances, and they tell us how uncertain we are about each variable individually. On the other hand, the off-diagonal elements $\sigma_{xy}$ and $\sigma_{yx}$ are covariances and describe whether the errors in $x$ and $y$ tend to change together in a **linear** sense, but it cannot fully reveal a **nonlinear** dependency.
 
 For covariance matrices,
 
@@ -150,3 +150,65 @@ $$
 $$
 
 so the covariance matrix is symmetric.
+
+# Covariance Mathematics
+
+Mathematically
+
+$$
+\mathrm{Cov}(x,y) = E[(x - \mu_x)(y - \mu_y)].
+$$
+
+Let's unpack this expression to understand what it means. We can consider three main cases for each observation:
+
+## Case 1: The deviations tend to have the same sign
+
+For example:
+
+$$
+x-\mu_x > 0, \qquad y-\mu_y > 0
+$$
+
+or
+
+$$
+x-\mu_x < 0, \qquad y-\mu_y < 0.
+$$
+
+In both cases, their product is positive. Therefore:
+
+$$
+\mathrm{Cov}(x,y) > 0.
+$$
+
+This means that when $x$ is above its mean, $y$ also tends to be above its mean, and when $x$ is below its mean, $y$ also tends to be below its mean.
+
+## Case 2: The deviations tend to have opposite signs
+
+For example:
+
+$$
+x-\mu_x > 0, \qquad y-\mu_y < 0,
+$$
+
+or vice versa.
+
+Their product is negative. This means:
+
+$$
+\mathrm{Cov}(x,y) < 0.
+$$
+
+This means that when $x$ tends to be above its mean, $y$ tends to be below its mean, and vice versa.
+
+## Case 3: No linear relationship
+
+If positive and negative products tend to cancel each other out, then
+
+$$
+\mathrm{Cov}(x,y) \approx 0.
+$$
+
+This means that there is little or no **linear relationship** between the deviations of $x$ and $y$.
+
+However, zero covariance does **not necessarily mean that $x$ and $y$ are independent**. They may still have a nonlinear relationship.
