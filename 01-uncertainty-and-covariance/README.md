@@ -138,7 +138,7 @@ $$
 where
 
 $$
-\sigma_{xy} = \operatorname{Cov}(x,y).
+\sigma_{xy} = \mathrm{Cov}(x,y).
 $$
 
 The diagonal elements $\sigma_x^2$ and $\sigma_y^2$ are variances. They tell us how uncertain we are about each variable individually, while the off-diagonal elements $\sigma_{xy}$ and $\sigma_{yx}$ are covariances and describe whether the errors in $x$ and $y$ tend to change together.
