@@ -89,3 +89,64 @@ $$
 $$
 
 So far, straightforward.
+
+# Uncertainty in 2D State Estimation
+
+Now, imagine that the state contains two variables:
+
+$$
+\mathbf{x} =
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}.
+$$
+
+Each variable has its own variance:
+
+$$
+\sigma_x^2, \qquad \sigma_y^2.
+$$
+
+At first, you might think that the uncertainty of the state could be represented only by these two values:
+
+$$
+\begin{bmatrix}
+\sigma_x^2 \\
+\sigma_y^2
+\end{bmatrix}
+$$
+
+But this is not enough.
+
+We also need to know:
+
+> Are the estimation errors in \(x\) related to the estimation errors in \(y\)?
+
+This is exactly what **covariance** tells us.
+
+The uncertainty of the complete 2D state is therefore represented by the covariance matrix
+
+$$
+P =
+\begin{bmatrix}
+\sigma_x^2 & \sigma_{xy} \\
+\sigma_{yx} & \sigma_y^2
+\end{bmatrix},
+$$
+
+where
+
+$$
+\sigma_{xy} = \operatorname{Cov}(x,y).
+$$
+
+The diagonal elements \(\sigma_x^2\) and \(\sigma_y^2\) are variances. They tell us how uncertain we are about each variable individually. While the off-diagonal elements \(\sigma_{xy}\) and \(\sigma_{yx}\) are covariances and describe whether the errors in \(x\) and \(y\) tend to change together.
+
+For covariance matrices,
+
+$$
+\sigma_{xy} = \sigma_{yx},
+$$
+
+so the covariance matrix is symmetric.
