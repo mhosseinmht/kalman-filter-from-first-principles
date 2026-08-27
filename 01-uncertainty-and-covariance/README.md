@@ -24,7 +24,7 @@ y \\
 \end{bmatrix},
 $$
 
-where \(x\) and \(y\) represent the robot position and \(\theta\) represents its orientation.
+where $x$ and $y$ represent the robot position and $\theta$ represents its orientation.
 
 # Variance in 1D
 
@@ -70,7 +70,7 @@ The bell curve shows the probability density of the different possible values of
   <em>Figure 1: Gaussian distribution with μ = 65 and σ = 10.</em>
 </p>
 
-The variance \(\sigma^2\) measures how spread out the possible values are around the mean \(\mu\).
+The variance $\sigma^2$ measures how spread out the possible values are around the mean $\mu$.
 
 A small variance means: **"I'm quite confident about the estimate."**
 
@@ -141,7 +141,7 @@ $$
 \sigma_{xy} = \operatorname{Cov}(x,y).
 $$
 
-The diagonal elements \(\sigma_x^2\) and \(\sigma_y^2\) are variances. They tell us how uncertain we are about each variable individually. While the off-diagonal elements \(\sigma_{xy}\) and \(\sigma_{yx}\) are covariances and describe whether the errors in \(x\) and \(y\) tend to change together.
+The diagonal elements $\sigma_x^2$ and $\sigma_y^2$ are variances. They tell us how uncertain we are about each variable individually, while the off-diagonal elements $\sigma_{xy}$ and $\sigma_{yx}$ are covariances and describe whether the errors in $x$ and $y$ tend to change together.
 
 For covariance matrices,
 
