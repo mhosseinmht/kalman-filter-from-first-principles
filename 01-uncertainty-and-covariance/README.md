@@ -284,7 +284,7 @@ Therefore, the principal axes of the ellipse do not necessarily coincide with th
 The figure below illustrates four useful cases.
 
 <p align="center">
-  <img src="figures/Ellipse.png" width="1000">
+  <img src="figures/2D_covariance_geometry.png" width="700">
 </p>
 
 <p align="center">
