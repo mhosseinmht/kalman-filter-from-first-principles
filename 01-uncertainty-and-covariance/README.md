@@ -212,3 +212,155 @@ $$
 This means that there is little or no **linear relationship** between the deviations of $x$ and $y$.
 
 However, zero covariance does **not necessarily mean that $x$ and $y$ are independent**. They may still have a nonlinear relationship.
+
+# Geometric Interpretation of the Covariance Matrix
+
+Geometrically, the covariance matrix describes the shape and orientation of the uncertainty associated with a multidimensional estimate.
+
+Suppose we are estimating a two-variables state. Therefore, the estimation error contains two components:
+
+$$
+\mathbf{e} =
+\begin{bmatrix}
+e_x \\
+e_y
+\end{bmatrix},
+$$
+
+with covariance matrix
+
+$$
+P =
+\begin{bmatrix}
+\sigma_x^2 & \sigma_{xy} \\
+\sigma_{yx} & \sigma_y^2
+\end{bmatrix}.
+$$
+
+Imagine repeating the same estimation process many times and plotting the resulting error pairs $(e_x,e_y)$ on a 2D plane.
+
+If the estimator is **unbiased**, then
+
+$$
+E[\mathbf{e}] =
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix},
+$$
+
+so the error cloud is centered around the origin.
+
+If the errors are also **jointly Gaussian**, the cloud itself consists of scattered samples, while the regions of equal probability density form ellipses centered at the origin. These ellipses provide a geometric representation of the covariance matrix.
+
+The covariance matrix determines three important geometric properties of these ellipses:
+
+1. **Size** — the overall amount of uncertainty.
+2. **Shape** — how the uncertainty is distributed across different directions.
+3. **Orientation** — the directions along which the errors tend to vary together.
+
+The diagonal elements
+
+$$
+\sigma_x^2,\qquad \sigma_y^2
+$$
+
+describe the individual spreads of the errors along the $x$ and $y$ coordinates.
+
+The off-diagonal elements
+
+$$
+\sigma_{xy} = \sigma_{yx}
+$$
+
+describe how the two errors vary together and therefore influence the orientation of the uncertainty ellipse.
+
+More precisely, the **eigenvectors** of $P$ determine the directions of the principal axes of the ellipse, while the **eigenvalues** determine the amount of variance along those directions.
+
+Therefore, the principal axes of the ellipse do not necessarily coincide with the original $x$ and $y$ axes.
+
+## Four Typical Cases
+
+The figure below illustrates four useful cases.
+
+<p align="center">
+  <img src="figures/Ellipse.png" width="1000">
+</p>
+
+<p align="center">
+  <em>Figure 2: Geometric interpretation of different 2D covariance structures.</em>
+</p>
+
+### 1. Zero Covariance and Equal Variances
+
+If
+
+$$
+\sigma_{xy}=0
+$$
+
+and
+
+$$
+\sigma_x^2=\sigma_y^2,
+$$
+
+the uncertainty is the same in every direction.
+
+The probability contours are therefore circles rather than elongated ellipses.
+
+There is no preferred direction of uncertainty.
+
+### 2. Zero Covariance and Different Variances
+
+If
+
+$$
+\sigma_{xy}=0
+$$
+
+but
+
+$$
+\sigma_x^2 \neq \sigma_y^2,
+$$
+
+the errors are uncorrelated, but the uncertainty is larger in one coordinate direction than in the other.
+
+The resulting ellipse is aligned with the coordinate axes.
+
+For example, if
+
+$$
+\sigma_x^2 > \sigma_y^2,
+$$
+
+the ellipse is wider along the $x$ direction.
+
+### 3. Positive Covariance
+
+If
+
+$$
+\sigma_{xy}>0,
+$$
+
+positive $e_x$ errors tend to occur together with positive $e_y$ errors, while negative $e_x$ errors tend to occur together with negative $e_y$ errors.
+
+The uncertainty ellipse is therefore tilted with a positive slope.
+
+### 4. Negative Covariance
+
+If
+
+$$
+\sigma_{xy}<0,
+$$
+
+positive $e_x$ errors tend to occur together with negative $e_y$ errors, and vice versa.
+
+The uncertainty ellipse is therefore tilted with a negative slope.
+
+In summary:
+
+> The covariance matrix tells us not only how large the uncertainty is, but also in which directions that uncertainty is distributed. The covariance ellipse is a geometric visualization of this information.
