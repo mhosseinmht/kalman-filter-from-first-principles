@@ -215,9 +215,7 @@ However, zero covariance does **not necessarily mean that $x$ and $y$ are indepe
 
 # Geometric Interpretation of the Covariance Matrix
 
-Geometrically, the covariance matrix describes the shape and orientation of the uncertainty associated with a multidimensional estimate.
-
-Suppose we are estimating a two-variables state. Therefore, the estimation error contains two components:
+Suppose we are estimating a two-variables state again. Therefore, the estimation error contains two components:
 
 $$
 \mathbf{e} =
@@ -237,21 +235,37 @@ P =
 \end{bmatrix}.
 $$
 
-Imagine repeating the same estimation process many times and plotting the resulting error pairs $(e_x,e_y)$ on a 2D plane.
-
-If the estimator is **unbiased**, then
+Imagine repeating the same estimation process many times and plotting the resulting error pairs $(e_x,e_y)$ on a 2D plane. This would form a cloud of possible estimation errors. If the estimator is unbiased, then
 
 $$
-E[\mathbf{e}] =
-\begin{bmatrix}
-0 \\
-0
-\end{bmatrix},
+E[e_x]=E[e_y]=0,
 $$
 
-so the error cloud is centered around the origin.
+meaning that the error cloud is centered around the origin $(0,0)$.
 
-If the errors are also **jointly Gaussian**, the cloud itself consists of scattered samples, while the regions of equal probability density form ellipses centered at the origin. These ellipses provide a geometric representation of the covariance matrix.
+Now suppose the errors follow a **2D Gaussian distribution**, and we look for 2D points $(e_x,e_y)$ that have the same joint probability density under the 2D Gaussian distribution.
+
+First, consider the case where the covariance is zero:
+
+$$
+\sigma_{xy}=\sigma_{yx}=0.
+$$
+
+If
+
+$$
+\sigma_x^2>\sigma_y^2,
+$$
+
+the errors have a larger spread along the $e_x$ direction than along the $e_y$ direction. Therefore, along the $e_x$ direction, we need to move farther from the origin before the probability density decreases to a certain level. Along the $e_y$ direction, the same probability-density level is reached at a smaller distance from the origin. Consequently, the equal-density contour is stretched along the $e_x$ direction and forms an ellipse rather than a circle.
+
+If instead
+
+$$
+\sigma_x^2=\sigma_y^2
+$$
+
+and the covariance is zero, the spread is identical in both directions, so the equal-density contour becomes a circle.
 
 The covariance matrix determines three important geometric properties of these ellipses:
 
