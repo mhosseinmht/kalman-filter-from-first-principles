@@ -378,3 +378,62 @@ The uncertainty ellipse is therefore tilted with a negative slope.
 In summary:
 
 > The covariance matrix tells us not only how large the uncertainty is, but also in which directions that uncertainty is distributed. The covariance ellipse is a geometric visualization of this information.
+
+# Mathematical Interpretation of the Covariance Ellipse
+
+For a 2D Gaussian distribution with mean $\boldsymbol{\mu}$ and covariance matrix $P$, the probability density function is
+
+$$
+p(\mathbf{x}) =
+\frac{1}{2\pi\sqrt{|P|}}
+\exp\left(
+-\frac{1}{2}
+(\mathbf{x}-\boldsymbol{\mu})^T
+P^{-1}
+(\mathbf{x}-\boldsymbol{\mu})
+\right).
+$$
+
+As you might remember, we were interested in all the points that have the **same probability density**. Therefore, along such a contour, $p(\mathbf{x})$ is constant. The prefactor
+
+$$
+\frac{1}{2\pi\sqrt{|P|}}
+$$
+
+is already constant because the covariance matrix $P$ is fixed. As a result, we can write:
+
+$$
+(\mathbf{x}-\boldsymbol{\mu})^T P^{-1}(\mathbf{x}-\boldsymbol{\mu}) = c^2
+$$
+
+For a positive-definite 2D covariance matrix, this equation geometrically represents an **ellipse** centered at $\boldsymbol{\mu}$.
+
+In the case of an unbiased estimation error, we have
+
+$$
+\boldsymbol{\mu} =
+\begin{bmatrix}
+0\\
+0
+\end{bmatrix},
+$$
+
+This is the mathematical connection between the covariance matrix and the uncertainty ellipse.
+
+## Mahalanobis Distance
+
+There is another important concept hidden inside this equation that appears frequently in state estimation, sensor fusion, and robotics.
+
+The quantity
+
+$$
+(\mathbf{x}-\boldsymbol{\mu})^T P^{-1}(\mathbf{x}-\boldsymbol{\mu}) = d_M^2
+$$
+
+is called the **squared Mahalanobis distance**. Unlike Euclidean distance, which asks
+
+> "How far is this point away in absolute units?"
+
+Mahalanobis distance asks
+
+> "How far is this point from the mean relative to the uncertainty of the distribution?"
