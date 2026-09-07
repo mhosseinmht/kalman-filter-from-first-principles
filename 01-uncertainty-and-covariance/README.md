@@ -436,4 +436,31 @@ is called the **squared Mahalanobis distance**. Unlike Euclidean distance, which
 
 Mahalanobis distance asks
 
-> "How far is this point from the mean relative to the uncertainty of the distribution?"
+> "How far is this point from the mean, relative to the uncertainty in that direction?"
+
+In other words, it shows how unusual this error point is, considering how uncertain the distribution is in that direction. 
+
+For a better understanding of this concept, consider the ellipse in Fig. 3, showing the 2D estimation error.
+
+<p align="center">
+  <img src="figures/Mahalanobis Distance.png" width="700">
+</p>
+
+<p align="center">
+  <em>Figure 3: Mahalanobis distance; the distance relative to uncertainty.</em>
+</p>
+
+The ellipse is much wider in the \(x\)-direction than in the \(y\)-direction. Therefore, large errors in \(x\) are relatively less unusual, while large errors in \(y\) are unusual. Now consider two error points at the same Euclidean distance from the origin:
+
+$$
+A=(2,0),
+B=(0,2).
+$$
+
+Their Euclidean distances from the origin are identical, but statistically, they are not equally unusual. Because uncertainty in \(x\) is large, the error A might be perfectly normal. But because uncertainty in \(y\) is small, B might be very unlikely. Mahalanobis distance captures exactly this difference. In other words:
+
+$$
+d_M(A) < d_M(B).
+$$
+
+Moreover, in Fig. 3, error point A lies on the blue ellipse corresponding to \(d_M = 1\), while the error point B lies on the orange ellipse corresponding to \(d_M = 2\).
